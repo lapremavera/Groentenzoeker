@@ -9,7 +9,7 @@ import android.widget.ImageView;
 
 public class ImageAdapter extends BaseAdapter{
     public Integer []thumbnail = {
-            R.drawable.artisjok, R.drawable.Broccoli,
+            R.drawable.artisjok, R.drawable.broccoli,
             R.drawable.courgette, R.drawable.doperwt,
             R.drawable.tomaat, R.drawable.rucola
     };
