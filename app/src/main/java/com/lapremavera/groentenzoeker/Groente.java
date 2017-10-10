@@ -1,3 +1,4 @@
+package com.lapremavera.groentenzoeker;
 
 public class Groente {
 

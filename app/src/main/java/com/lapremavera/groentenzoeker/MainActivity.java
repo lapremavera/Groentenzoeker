@@ -1,6 +1,8 @@
 package com.lapremavera.groentenzoeker;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IntegerRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.ContextMenu;
@@ -53,7 +55,25 @@ public class MainActivity extends AppCompatActivity
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
         AdapterView.AdapterContextMenuInfo cmi = (AdapterView.AdapterContextMenuInfo) menuInfo;
+
+
         menu.add(1, cmi.position, 0, "Bewerk");
+        menu.add(2, cmi.position, 0, "meer info");
+        menu.add(3, cmi.position, 0, "verwijder");
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        GridView g=(GridView) findViewById(R.id.GridView1);
+        Integer resourceId = (Integer) g.getItemAtPosition(item.getItemId());
+        switch (item.getGroupId())
+        {
+            case 1:
+                Intent i = new Intent(MainActivity.this,ImagePreview.class);
+                i.putExtra("id", resourceId);
+                startActivity(i);
+        }
+        return true;
     }
 
     @Override

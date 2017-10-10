@@ -3,7 +3,7 @@ package com.lapremavera.groentenzoeker;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class imagePreview extends AppCompatActivity {
+public class ImagePreview extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
