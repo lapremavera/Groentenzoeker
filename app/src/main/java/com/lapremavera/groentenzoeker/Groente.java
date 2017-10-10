@@ -1,11 +1,11 @@
-package com.lapremavera.groentenzoeker;
+package com.lapremavera;
 
 public class Groente {
 
     private long id;
     private String naam;
     private String wetenschappelijkeNaam;
-    private int masHoogte;
+    private int maxHoogte;
     private int minHoogte;
     private int duurTotPluk;
     private String oogsttijd;
@@ -14,6 +14,8 @@ public class Groente {
     private String grondsoort;
     private String licht;
     private String plaats;
+
+    private String urlAfbeelding;
 
     public long getId() {
         return id;
@@ -40,11 +42,11 @@ public class Groente {
     }
 
     public int getMasHoogte() {
-        return masHoogte;
+        return maxHoogte;
     }
 
     public void setMasHoogte(int masHoogte) {
-        this.masHoogte = masHoogte;
+        this.maxHoogte = masHoogte;
     }
 
     public int getMinHoogte() {
@@ -109,5 +111,13 @@ public class Groente {
 
     public void setPlaats(String plaats) {
         this.plaats = plaats;
+    }
+
+    public String getUrlAfbeelding() {
+        return urlAfbeelding;
+    }
+
+    public void setUrlAfbeelding(String urlAfbeelding) {
+        this.urlAfbeelding = urlAfbeelding;
     }
 }
