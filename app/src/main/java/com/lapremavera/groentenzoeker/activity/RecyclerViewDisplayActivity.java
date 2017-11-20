@@ -16,10 +16,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.lapremavera.Groente;
+import com.lapremavera.groentenzoeker.JSONResourceReader;
 import com.lapremavera.groentenzoeker.recycleview.MyRecyclerViewAdapter;
 import com.lapremavera.groentenzoeker.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RecyclerViewDisplayActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -27,6 +30,9 @@ public class RecyclerViewDisplayActivity extends AppCompatActivity implements Na
     private ArrayList<String> images = new ArrayList<>();
     private RecyclerView.LayoutManager layoutManager;
     MyRecyclerViewAdapter adapter;
+
+    JSONResourceReader jsonResourceReader;
+    List<Groente> originalListGroente;
 
     Integer []thumbnail = {
             R.drawable.artisjok,
@@ -40,6 +46,10 @@ public class RecyclerViewDisplayActivity extends AppCompatActivity implements Na
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view_display);
+
+        jsonResourceReader = new JSONResourceReader(this.getResources(),R.raw.groenten_data);
+        originalListGroente = jsonResourceReader.constructUsingGson();
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -81,7 +91,8 @@ public class RecyclerViewDisplayActivity extends AppCompatActivity implements Na
         recyclerViewMain.setHasFixedSize(true);
         layoutManager = new GridLayoutManager(this, 2);
         recyclerViewMain.setLayoutManager(layoutManager);
-        adapter = new MyRecyclerViewAdapter(thumbnail, this);
+        adapter = new MyRecyclerViewAdapter(thumbnail, this, originalListGroente);
+
     }
 
     private void setAdapter() {
